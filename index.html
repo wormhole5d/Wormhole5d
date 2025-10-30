@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wormhole 5D</title>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body style="font-family: sans-serif; text-align: center; padding: 50px; background: #000; color: #0ff;">
+  <h1>WORMHOLE 5D</h1>
+  <p>One-time entry: <strong>$25</strong></p>
+  <button id="checkout" style="padding: 15px 30px; font-size: 18px; background: #0f0; border: none; color: #000; font-weight: bold; cursor: pointer;">ENTER NOW</button>
+
+  <script>
+    const stripe = Stripe('pk_test_51SNzg5RjeRNMiy1He7DmPVlyYSgBITFU62LakzMgk2HlyAkfkESUbAd8QkAcTv1bYlixEYgeqL18Vc6jY1eIrHPh00rbIwpmY8');
+
+    document.getElementById('checkout').addEventListener('click', () => {
+      alert('Wormhole 5D: $25 test payment ready!');
+    });
+  </script>
+</body>
+</html>
