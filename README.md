@@ -1,16 +1,21 @@
-## Hi there 👋
+# Wormhole5D
 
-<!--
-**wormhole5d/Wormhole5d** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+5D resonance field + stochastic traversal simulator.  
+**Public Domain (CC0)** – use, modify, share freely.
 
-Here are some ideas to get you started:
+```python
+import numpy as np
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+def resonance_field_5D(steps=100, peak=5.0, decay=0.02):
+    t = np.arange(steps)
+    peak_pos = steps // 8
+    field = peak * np.exp(-decay * (t - peak_pos)**2)
+    field += 0.2 * np.sin(2 * np.pi * t / steps * 5)
+    return np.clip(field, 0.1, None)
+
+def traverse_5D(steps=150, seed=None):
+    if seed: np.random.seed(seed)
+    field = resonance_field_5D(steps)
+    inc = np.random.normal(0, 1, steps) * np.sqrt(field)
+    return np.cumsum(inc), field
+
