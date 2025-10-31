@@ -12,8 +12,14 @@
   <script>
     const stripe = Stripe('pk_test_51SNzg5RjeRNMiy1He7DmPVlyYSgBITFU62LakzMgk2HlyAkfkESUbAd8QkAcTv1bYlixEYgeqL18Vc6jY1eIrHPh00rbIwpmY8');
 
-    document.getElementById('checkout').addEventListener('click', () => {
-      alert('Wormhole 5D: $25 test payment ready!');
+    document.getElementById('checkout').addEventListener('click', async () => {
+      const res = await fetch('/.netlify/functions/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount: 2500 })
+      });
+      const { id } = await res.json();
+      stripe.redirectToCheckout({ sessionId: id });
     });
   </script>
 </body>
