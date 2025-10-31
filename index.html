@@ -7,10 +7,12 @@
 <body style="font-family: sans-serif; text-align: center; padding: 50px; background: #000; color: #0ff;">
   <h1>WORMHOLE 5D</h1>
   <p>One-time entry: <strong>$25</strong></p>
-  <button id="checkout" style="padding: 15px 30px; font-size: 18px; background: #0f0; border: none; color: #000; font-weight: bold; cursor: pointer;">ENTER NOW</button>
+  <button id="checkout" style="padding: 15px 30px; font-size: 18px; background: #0f0; border: none; color: #000; cursor: pointer;">
+    Checkout
+  </button>
 
   <script>
-    const stripe = Stripe('pk_test_51SNzg5RjeRNMiy1He7DmPVlyYSgBITFU62LakzMgk2HlyAkfkESUbAd8QkAcTv1bYlixEYgeqL18Vc6jY1eIrHPh00rbIwpmY8');
+    const stripe = Stripe('pk_test_51SNzg5RjeRNMiy1He7DmPV1YSgBITFU62LakzMgk2H1yAkfkES');
 
     document.getElementById('checkout').addEventListener('click', async () => {
       const res = await fetch('https://wormhole5d-api.robensley823475.workers.dev', {
