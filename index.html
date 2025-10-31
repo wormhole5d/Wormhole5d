@@ -13,7 +13,7 @@
     const stripe = Stripe('pk_test_51SNzg5RjeRNMiy1He7DmPVlyYSgBITFU62LakzMgk2HlyAkfkESUbAd8QkAcTv1bYlixEYgeqL18Vc6jY1eIrHPh00rbIwpmY8');
 
     document.getElementById('checkout').addEventListener('click', async () => {
-      const res = await fetch('/.netlify/functions/checkout', {
+      const res = await fetch('https://wormhole5d-api.robensley823475.workers.dev', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amount: 2500 })
